@@ -1,4 +1,6 @@
-$(() => {
+{
+
+}$(() => {
   const $scene1 = $('.scene-leaf path');
   const $scene1circle = $('.scene-leaf circle');
   const $scene2 = $('.scene-first circle');
@@ -19,15 +21,26 @@ $(() => {
     anime({
       targets: `${trg} .scene-text`,
       opacity: [0, 1],
+      rotateX: [-180, 0],
       translateX: [-200, 0],
       duration: 500
     });
   }
 
 //  setTimeout(() => aniItemsRandom('.scene-leaf circle'), 700);
-  setTimeout(() => drawStroke('.scene-first path', false), 600);
-  setTimeout(() => drawStroke('.scene-first circle', false), 1400);
-  // setTimeout(() => drawSVGPath('.scene-leaf path'), 10);
+  setTimeout(() => drawStroke('.scene-first path', false), 300);
+  setTimeout(() => drawStroke('.scene-first circle', false), 600);
+
+  // setTimeout(() => anime({
+  //   targets: '.scene-first circle',
+  //   scale: [0, 1],
+  //   duration: 650,
+  //   easing: randEasing(true),
+  //   delay: (e, i) => i * 130
+  // }), 1400);
+
+  setTimeout(() => showText('.scene-first'), 5300);
+
   setTimeout(() => {
     setTimeout(() => anime({
       targets: '.scene-leaf .bottle',
@@ -80,17 +93,19 @@ $(() => {
       targets: '.sphere-2 .bottle',
       opacity: [0, 1],
       scale: [0, 1],
+      elasticity: 700,
       rotateX: [50, 0],
       translateX: [-240, -240],
       fillOpacity: [0, 1],
-      translateY: [-80, 0],
-      easing: 'easeOutInCubic',
+      translateY: [-50, 0],
+      easing: 'easeInOutCubic',
       duration: 500,
       delay: (e, i) => i * 70
     }), 1200);
     setTimeout(() => anime({
       targets: '.sphere-2 .dots',
       opacity: [0, 1],
+      elasticity: 1200,
       translateX: [-240, -240],
       fillOpacity: [0, 0.5],
       translateY: [-80, 0],
@@ -108,13 +123,15 @@ $(() => {
         translateX: [-240, 0],
         delay: (e, i) => i * 10,
         easing: randEasing(),
-        duration: 100,
+        duration: 500,
         complete: () => {
           anime({
             targets: '.scene-leaf-cap .cap',
             translateY: [-250, 0],
             fillOpacity: [0, 0.7],
-            duration: 1000,
+            elasticity: 500,
+            eassing: 'easeInOutQuad',
+            duration: 1800,
             asing: randEasing(),
           });
         }
@@ -122,25 +139,26 @@ $(() => {
       setTimeout(() => {
         anime({
           targets: '.sphere-2 .dots',
-          translateX: [-240, 0],
-          fillOpacity: 0,
+          translateX: [-340, 0],
+          fillOpacity: [0, 0],
           delay: (e, i) => i * 10,
           easing: randEasing(),
         //  fillOpacity: [0.5, 1],
-          duration: 500,
+          duration: 400,
+          elasticity: 400,
           complete: () => {
             anime({
               targets: '.sphere-2 .dots',
               fillOpacity: [0, 1],
               scale: [0, 1],
-              duration: 800,
-              delay: (e, i) => i * 110,
+              duration: 1200,
+              delay: (e, i) => i * 410,
             });
           }
         });
       }, 50);
     }, 3000);
-    setTimeout(() => aniItemsRandom('.sphere-2 .background'), 3200);
+    setTimeout(() => drawStroke('.sphere-2 .background'), 1000);
     setTimeout(() => {
       anime({
         targets: '.scene-leaf-cap .leafs',
@@ -166,107 +184,128 @@ $(() => {
       delay: (e, i) => i * 80
     }), 1200);
   //  setTimeout(() => aniItemsRandom('.sphere-2 circle'), 1400);
-    setTimeout(() => showText('.sphere-2'), 2800);
-  }, 2400);
+    setTimeout(() => showText('.sphere-2'), 5000);
+
+    setTimeout(() => {
+      anime({
+        targets: '.scene-leaf-cap .leaf',
+        opacity: [0, 1],
+        skewY: [-100, 0],
+        skewX: [-30, 0],
+        rotateY: [-30, 0],
+        fillOpacity: [0, 1],
+        translateY: [80, 0],
+        duration: 2900,
+        delay: (e, i) => i * 130,
+        complete: () => {
+
+        }
+      });
+    }, 200);
+    setTimeout(() => {
+      anime({
+        targets: '.scene-leaf-cap .plate',
+        opacity: [0, 1],
+        rotateY: [-60, 0],
+        fillOpacity: [0, 1],
+        translateY: [180, -50],
+        duration: 900,
+        delay: (e, i) => i * 170,
+        complete: () => {
+
+        }
+      });
+    }, 800);
+  }, 100);
 
   $('.scene-leaf-cap .leafs').css({ transform: 'scale(0.5)' });
 
-  setTimeout(() => {
-    anime({
-      targets: '.scene-leaf-cap .leaf',
-      opacity: [0, 1],
-      skewY: [-100, 0],
-      skewX: [-30, 0],
-      rotateY: [-30, 0],
-      fillOpacity: [0, 1],
-      translateY: [80, 0],
-      duration: 2900,
-      delay: (e, i) => i * 130,
-      complete: () => {
 
-      }
-    });
-  }, 3200);
-  setTimeout(() => {
-    anime({
-      targets: '.scene-leaf-cap .plate',
-      opacity: [0, 1],
-      rotateY: [-60, 0],
-      fillOpacity: [0, 1],
-      translateY: [180, -50],
-      duration: 900,
-      delay: (e, i) => i * 170,
-      complete: () => {
-
-      }
-    });
-  }, 3800);
-  setTimeout(() => {
-    anime({
-      targets: '.scene-box path, .scene-box circle, .scene-box ellipse',
-      opacity: [0, 1],
-      fillOpacity: [0, 1],
-      translateY: [-180, 0],
-      duration: 600,
-      delay: (e, i) => i * 30
-    });
-  }, 4700);
-
-  setTimeout(() => {
-    anime({
-      targets: '.scene-first svg',
-      rotate: '+12260deg',
-      duration: 2232600,
-      loop: true,
-      round: true
-    });
-    setTimeout(() => showText('.scene-first'), 500);
-  }, 500);
+  // setTimeout(() => {
+  //   anime({
+  //     targets: '.scene-first svg',
+  //     rotate: '+12260deg',
+  //     duration: 2232600,
+  //     loop: true,
+  //     round: true
+  //   });
+  //   setTimeout(() => showText('.scene-first'), 500);
+  // }, 500);
 
   setTimeout(() => {
     drawStroke('.sphere-3 path', false);
-    setTimeout(() => aniItemsRandom('.sphere-3 circle'), 800);
-    setTimeout(() => showText('.sphere-3'), 1400);
+    // const path = anime.path('.sphere-3 .follow-path');
+    //
+    // anime({
+    //   targets: '.sphere-3 g circle',
+    //   translateX: path,
+    //   translateY: path,
+    //   rotate: path,
+    //   transformOrigin: 'center center',
+    //   duration: 13000,
+    //   loop: true,
+    //   easing: 'linear'
+    // });
+
+    anime({
+      targets: '.sphere-3 .bubbles',
+      opacity: [0, 1],
+      duration: 3100,
+    });
+    setTimeout(() => drawStroke('.sphere-3 circle'), 1500);
+    setTimeout(() => drawStroke('.sphere-3 .follow-path'), 50);
+    setTimeout(() => showText('.sphere-3'), 3800);
 
     setTimeout(() => justDraw('.scene-leaf-pink circle, .scene-leaf-pink path, .scene-leaf-pink ellipse'), 700);
     setTimeout(() => drawStroke('.scene-flour circle, .scene-flour path, .scene-flour ellipse'), 1700);
-  }, 4400);
+  }, 1800);
 
   setTimeout(() => {
 //    aniItemsRandom('.sphere-4 circle');
-    setTimeout(() => showText('.sphere-4'), 500);
+    setTimeout(() => showText('.sphere-4'), 1920);
+
+    drawStroke('.sphere-4 path, .sphere-4 ellipse, .sphere-4 circle');
+
     anime({
       targets: '.sphere-4 path, .sphere-4 ellipse, .sphere-4 circle',
-      opacity: [0, 1],
-      fillOpacity: [0, 1],
-      translateY: [-180, 0],
-      duration: 1200,
+      scale: [0.6, 1],
       delay: (e, i) => i * 30,
       begin: (e) => {
         setTimeout(() => {
+          drawStroke('.scene-box ellipse');
+          setTimeout(() => {
+            anime({
+              targets: '.scene-box path, .scene-box circle',
+              opacity: [0, 1],
+              fillOpacity: [0, 1],
+              translateY: [-120, 0],
+              duration: 600,
+              delay: (e, i) => i * 30
+            });
+          }, 800);
           anime({
             targets: '.windmill',
             rotate: {
               value: [35000],
             },
             loop: true,
-            elasticity: 700,
+            elasticity: 500,
             duration: 2113500,
             direction: 'alternate'
           });
           anime({
             targets: '.clouds',
-            translateX: [0, 500],
+            elasticity: 200,
+            translateX: [0, 200],
             loop: true,
-          //  rotate: true,
             autoplay: true,
-            duration: 35000,
+            duration: 15000,
             direction: 'alternate'
           });
         }, 800);
       }
     });
-  }, 6200);
+  }, 3200);
 
   function justDraw(selector, callback) {
     anime({
@@ -282,80 +321,10 @@ $(() => {
     });
   }
 
-  function wierdMoves(selector, duration, mode) {
-    anime({
-      targets: selector,
-      loop: true,
-      round: true,
-      duration: duration || anime.random(4000, 15000),
-      direction: 'alternate',
-      scale: {
-        value: (e, b, c) => {
-        // console.log(e,b,c);
-          const val = anime.random(75, 140) / 100;
-        // console.log(val);
-          return val;
-        },
-        delay: (e, index) => index * anime.random(150, 750),
-        duration: anime.random(400, 2100)
-      },
-      fillOpacity: {
-        value: (wtf) => {
-          if (mode == 'fill') {
-            return [0.1, 0.3];
-          }
-          return [1, 1];
-        },
-        duration: 2000
-      },
-      boxShadow: {
-        value: (wtf) => {
-          const shadow = `0px ${anime.random(7, 3)}px ${anime.random(2, 10)}px rgba(0,0,0,${anime.random(1, 100) / 100})`;
-          return shadow;
-        },
-        delay: (e, index) => index * anime.random(650, 1350),
-        duration: anime.random(400, 2500),
-      },
-      translateY: {
-        value: `${anime.random(15, -20)}px`,
-        delay: (e, index) => index * anime.random(650, 1350),
-        duration: anime.random(400, 2600),
-      },
-      translateX: {
-        value: `${anime.random(-15, 20)}px`,
-        delay: (e, index) => index * anime.random(150, 750),
-        duration: anime.random(650, 2700)
-      },
-    });
-  }
-
-  function goneOut(selector) {
-    anime({
-      targets: selector,
-      duration: 2500,
-      scale: {
-        value: (e) => [1, 3],
-        delay: (e, index) => index * anime.random(50, 200),
-        duration: anime.random(850, 1300)
-      },
-      opacity: [1, 0],
-      translateX: {
-        value: () => [0, anime.random(300, 0)],
-        delay: (e, index) => index * anime.random(50, 200),
-        duration: anime.random(350, 700)
-      },
-      translateY: {
-        value: () => [0, anime.random(300, 0)],
-        delay: (e, index) => index * anime.random(50, 200),
-        duration: anime.random(350, 700)
-      },
-    });
-  }
-
   function drawStroke(selector, callback) {
     console.log(selector);
     $(selector).css({
-      stroke: 'rgba(0,0,0,0.3)',
+      stroke: 'rgba(0,0,0,0.5)',
       'stroke-opacity': '1',
       'stroke-width': '3px',
       opacity: 1,
@@ -370,30 +339,31 @@ $(() => {
           return [-pathLength, 0];
         },
         easing: 'linear',
-        delay: (e, i) => i * anime.random(50, 350)
+        delay: (e, i) => i * anime.random(150, 350)
       },
       strokeWidth: {
-        value: ['3px', '2px'],
-        duration: 2000,
-        delay: 700
+        value: ['2px', '3px'],
+        duration: 600,
+        delay: (e, i) => i * anime.random(10, 450)
       },
-      duration: 500,
+      elasticity: anime.random(300, 500),
+      duration: anime.random(400, 880),
       begin: (e) => {
         setTimeout(() => {
           anime({
             targets: selector,
             fillOpacity: {
               value: [0, 1],
-              delay: (e, i) => i * 150,
+              delay: (e, i) => i * 70,
               duration: 2700
             },
             strokeOpacity: {
               value: [1, 0.1],
-              delay: (e, i) => i * 150,
-              duration: 2700
+              delay: (e, i) => i * 180,
+              duration: 3700
             },
           });
-        }, 400);
+        }, 500);
 
       //  if (callback) callback(e);
       }
@@ -474,7 +444,7 @@ function randEasing(log) {
   return easing || 'linear';
 }
 
-function aniItemsRandom(selector, callback, maxDuration = 900, maxDelay = 220, minDuration = 350) {
+function aniItemsRandom(selector, callback, maxDuration = 700, maxDelay = 220, minDuration = 350) {
   const params = {
     targets: selector,
     opacity: {

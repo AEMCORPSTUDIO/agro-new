@@ -18,6 +18,9 @@ body {
   position:relative;
 }
 
+.follow-path {
+  opactiy: 0.5;
+}
 .bg {
 	position: absolute;
 	width:100%;
@@ -28,7 +31,7 @@ body {
 	-webkit-filter: brightness(1.2);
 	filter: brightness(1.2);
 }
-// после того как ты запустил gulp при сохранении он автоматически будет собирать эти стили в фаил build/styles.css
+
 .svg-scene {
   .circle {
     box-shadow:0px 3px 12px rgba(0,0,0,0.5);
@@ -42,12 +45,12 @@ body {
   }
   .scene-text {
 		position: relative;
-    background: #fff;
+    background: fade(#fff,855);
     padding: 4px 16px 7px 16px;
     /* padding-left: 20px; */
     display: inline-block;
     z-index: 9;
-    font-size: 32px;
+    font-size: 22px;
     /* text-transform: uppercase; */
     font-weight: 300;
   }
@@ -177,9 +180,6 @@ body {
 			transition: transform 0.5s cubic-bezier(0,1.65,.82,.19);
 	}
 }
-
-// вот в этом файле можешь писать на less
-// что бы писать на лесс надо запустить gulp
 .circle-wrapper {
   width:300px;
   height:300px;
