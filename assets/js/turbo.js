@@ -305,7 +305,7 @@
         }, 800);
       }
     });
-  }, 3200);
+  }, 2900);
 
   function justDraw(selector, callback) {
     anime({
