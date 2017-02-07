@@ -161,6 +161,7 @@
 	<br>
 	<br>
 	<br>
+
 <!-- HTML-код модального окна-->
 <div id="myModal" class="modal fade">
 	<div class="modal-dialog modal-lg">
@@ -208,16 +209,46 @@
 						<div class="row center">
 							<div class="col-lg-4">&nbsp;</div>
 							<div class="col-lg-8">
-								<button type="button" class="btn btn-default btn-lg btn-modal bold">Заказать</button><br>
+								<button type="button" class="btn btn-default btn-lg btn-modal bold" data-toggle="modal" data-target="#myModal-test">Заказать</button><br>
 							</div>
 						</div>
 					</div>
 					<!-- Основное содержимое модального окна -->
+					<!-- HTML-код вложенного модального окна-->
+					<div id="myModal-test" class="modal fade">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content">
+								<button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<!-- Основное содержимое модального окна -->
+								<div class="modal-body">
+									<div class="container center-zakaz">
+										<div class="row center-zakaz">
+											<div class="col-lg-2">&nbsp;</div>
+											<div class="col-lg-8">
+												<h3>Заполните форму:</h3>
+												<input type="text" placeholder="Введите имя" class="form-control zakaz_inp"><br>
+												<input type="text" placeholder="Введите фамилию" class="form-control zakaz_inp"><br>
+												<input type="text" placeholder="Введите номер телефона" class="form-control zakaz_inp"><br>
+												<input type="text" placeholder="Введите email" class="form-control zakaz_inp"><br>
+												<button type="button" class="btn btn-default btn-lg btn-modal bold" data-dismiss="modal">Заказать</button><br>
+											</div>
+											<div class="col-lg-2">&nbsp;</div>
+										</div>
+									</div>
+									<!-- Основное содержимое модального окна -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- HTML-код вложенного модального окна-->
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- HTML-код модального окна-->
+
 	<div class="container fon_bgc_footer">
 		<br/>
 		<div class="row">
